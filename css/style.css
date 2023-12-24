@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.recensione {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#recensioneForm {
+    margin-top: 20px;
+}
+
+#recensioneForm label,
+#recensioneForm input,
+#recensioneForm textarea,
+#recensioneForm button {
+    display: block;
+    margin-bottom: 10px;
+}
