@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result) {
         echo json_encode(['message' => 'Recensione inserita con successo.']);
     } else {
-        echo json_encode(['error' => 'Errore durante l'inserimento della recensione.']);
+        echo json_encode(['error' => "Errore durante l'inserimento della recensione."]);
     }
 }
 
