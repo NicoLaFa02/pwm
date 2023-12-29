@@ -137,7 +137,7 @@ function eliminaRecensione(recensioneID) {
             caricaRecensioni();
         },
         error: function(error) {
-            console.error('Errore durante l'eliminazione della recensione:', error);
+            console.error("Errore durante l'eliminazione della recensione:", error);
             // Gestisci l'errore in modo appropriato (ad esempio, mostrando un messaggio all'utente)
         }
     });

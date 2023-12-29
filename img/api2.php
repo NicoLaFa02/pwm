@@ -42,7 +42,7 @@ function generaTokenJWT($username) {
         "iat" => time(), //Timestamp di quando è stato emesso il token
         "exp" => time() + 3600, //Timestamp di quando il token scadrà
         "data" => array(
-            "username" => $username
+        "username" => $username
     ) 
         );
 
