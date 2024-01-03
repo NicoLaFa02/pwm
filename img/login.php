@@ -1,15 +1,19 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$pw = "";
+$dbname = "pwm";
 
 // Crea la connessione
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $pw, $dbname);
 
 // Verifica la connessione
 if ($conn->connect_error) {
     die("Connessione fallita: " . $conn->connect_error);
 }
 
-echo "Connessione riuscita!";
+// Codice di login 
+
+$conn->close();
+
 ?>
