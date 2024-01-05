@@ -1,30 +1,31 @@
 // Scheletri delle funzioni per la gestione degli utenti
 
+function verLength(inputString){
+    if (inputString.length < 200) return true;
+    else return false;
+    //semplice funzione per evitare che le stringhe superino il limite di caratteri imposto nel db
+}
+
+
 function registra_utente(){
     //registrazione utente nel db
-    
-    //deve esserci un controllo sulla lunghezza dei caratteri, se supera 15 allora l'username
-    //è troppo lungo.
-
-    const xhr = new XMLHttpRequest();
-    const url = '../img/config.php'; // Sostituisci con il percorso corretto del tuo file PHP
 
     // Dati da inviare al server
-    const datiUtente = {
+    const userData = {
         username: document.getElementById('username').value,
         email: document.getElementById('email').value,
         password: document.getElementById('password').value
     };
 
-    // Converti i dati in una stringa nel formato "chiave=valore&chiave=valore"
-    let datiDaInviare = '';
-    for (let key in datiUtente) {
-        if (datiUtente.hasOwnProperty(key)) {
-            datiDaInviare += encodeURIComponent(key) + '=' + encodeURIComponent(datiUtente[key]) + '&';
-        }
-    }
-    // Rimuovi l'ultimo '&'
-    datiDaInviare = datiDaInviare.slice(0, -1);
+    // se la lunghezza supera il limite consentito allora non si continua con la registrazione
+    if (!verLength(userData.username) || !verLength(userData.password) || !verLength(userData.email)) {
+        console.error('Errore: superata la lunghezza consentita (MAX 200 caratteri per campo).');
+        return;
+      }
+
+
+    const xhr = new XMLHttpRequest();
+    const url = '../img/registration.php';
 
     // Configura la richiesta
     xhr.open('POST', url, true);
@@ -40,9 +41,11 @@ function registra_utente(){
             }
         }
     };
+    //"impacchetamento" dei dati da inviare
+    const dataToSend = `username=${userData.username}&password=${userData.password}&email=${userData.email}`;
 
     // Invia la richiesta con i dati
-    xhr.send(datiDaInviare);
+    xhr.send(dataToSend);
 }
 
 function login(){
