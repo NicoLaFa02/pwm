@@ -14,6 +14,18 @@ if ($conn->connect_error) {
 
 // Codice di login 
 
+$sql = "SELECT username, password, email FROM utenti";
+
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo"Username: " . $row["username"] . " - Password: ". $row["password"];
+    }
+}else{
+    echo "Nessun risultato trovato nella tabella utenti";
+}
+
 $conn->close();
 
 ?>
