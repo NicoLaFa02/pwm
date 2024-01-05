@@ -34,23 +34,16 @@
     <div id="div_registrazione">
         <h2 id="titolo_registrazione">Registrazione</h2>
         <br>
-        <p>Inserire nome utente e password</p>
+        <p>Inserire email, username e password</p>
         <br>
-        <form action="../img/registration.php" method="post">
-
+        <form onsubmit="return false;">
             <input type="text" name="email" placeholder="Inserisci la tua email"></input>
             <p></p>
             <input type="text" name="username" placeholder="Inserisci il tuo username"></input>
             <p></p>
             <input type="text" name="password" placeholder="Inserisci la tua password"> </input>
             <p></p>
-            <!-- <input type="text" name="verifica_password" placeholder="Reinserisci la tua password"> </input>
-            <p></p> -->
-            <!-- da aggiungere verifica  -->
-
-
-            <input type="submit" value="Registrati"></input>
-            
+            <input type="submit" value="Registra" onclick="registra_utente()">
         </form>
     </div>
 
