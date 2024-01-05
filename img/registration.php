@@ -13,19 +13,23 @@ if ($conn->connect_error) {
 }
 
 
-$username = $_POST['username'];
-$password = $_POST['password'];
-$email = $_POST['email'];
+$username = mysqli_real_escape_string($conn, $_POST['username']);
+$password = mysqli_real_escape_string($conn, $_POST['password']);
+$email = mysqli_real_escape_string($conn, $_POST['email']);
+
 
 $sql = "INSERT INTO utenti (username, password, email)
 VALUES ('$username', '$password', '$email')";
 
 
 if ($conn->query($sql) === TRUE) {
-    echo "Nuovo utente registrato con successo";
+    $response = array("message" => "Nuovo utente registrato con successo");
+    echo json_encode($response);
 } else {
-    echo "Errore nell'inserimento dell'utente: " . $conn->error;
+    $response = array("error" => "Errore nell'inserimento dell'utente: " . $conn->error);
+    echo json_encode($response);
 }
+
 
 // Chiusura della connessione
 $conn->close();
