@@ -1,4 +1,8 @@
 <?php
+include_once './header.php';
+?>
+
+<?php
 $servername = "localhost";
 $username = "root";
 $pw = "";
@@ -59,7 +63,7 @@ $conn->close();
             <p></p>
 
             <input type="submit" value="Accesso"></input>
-            
+
             <p>Non sei ancora registrato?</p>
             <a href="./registration.php">Registrati ora</a>
 
@@ -70,3 +74,7 @@ $conn->close();
 
 </body>
 </html>
+
+<?php
+include_once './footer.php';
+?>

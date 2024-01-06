@@ -1,4 +1,8 @@
 <?php
+include_once './header.php';
+?>
+
+<?php
 $host = "localhost";
 $username_db = "root";
 $password_db = "";
@@ -55,17 +59,21 @@ $conn->close();
         <br>
         <p>Inserire email, username e password</p>
         <br>
-        <form onsubmit="return false;">
-            <input type="text" name="email" placeholder="Inserisci la tua email"></input>
+        <form onsubmit="registra_utente()">
+            <input type="email" name="email" placeholder="Inserisci la tua email"></input>
             <p></p>
             <input type="text" name="username" placeholder="Inserisci il tuo username"></input>
             <p></p>
-            <input type="text" name="password" placeholder="Inserisci la tua password"> </input>
+            <input type="password" name="password" placeholder="Inserisci la tua password"> </input>
             <p></p>
-            <input type="submit" value="Registra" onclick="registra_utente()">
+            <input type="submit" value="Registra">
         </form>
     </div>
 
 <script src="../js/utenti_main.js"></script>
 </body>
 </html>
+
+<?php
+include_once './footer.php';
+?>
