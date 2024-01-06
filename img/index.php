@@ -2,9 +2,6 @@
 include_once './header.php';
 ?>
 
-<style>
-<?php include '../css/style.css';?>
-</style>
 
 <!DOCTYPE html>
 <html lang="en">
