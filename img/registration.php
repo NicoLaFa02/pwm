@@ -35,3 +35,37 @@ if ($conn->query($sql) === TRUE) {
 $conn->close();
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- Questo è il codice che precedentemente era stato usato in login.html (solo la parte di registrazione)-->
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="../css/login.css">
+
+</head>
+
+<body>
+
+    <div id="div_registrazione">
+        <h2 id="titolo_registrazione">Registrazione</h2>
+        <br>
+        <p>Inserire email, username e password</p>
+        <br>
+        <form onsubmit="return false;">
+            <input type="text" name="email" placeholder="Inserisci la tua email"></input>
+            <p></p>
+            <input type="text" name="username" placeholder="Inserisci il tuo username"></input>
+            <p></p>
+            <input type="text" name="password" placeholder="Inserisci la tua password"> </input>
+            <p></p>
+            <input type="submit" value="Registra" onclick="registra_utente()">
+        </form>
+    </div>
+
+<script src="../js/utenti_main.js"></script>
+</body>
+</html>
