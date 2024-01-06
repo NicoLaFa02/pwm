@@ -1,4 +1,7 @@
 <!-- header.php -->
+<style>
+<?php include '../css/style.css';?>
+</style>
 
 <!DOCTYPE html>
 <html lang="it">
@@ -7,7 +10,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RecenField</title>
-    <!-- Aggiungi eventuali stili CSS -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -15,16 +17,14 @@
 
     <header>
         <div class="logo">
-            <a href="../img/">HOME</a>
+            <a href="../img/" class="home-link">HOME</a>
         </div>
 
-        <nav>
+        <nav class="nav-links">
             <ul>
                 <li><a href="./profilo.php">PROFILO</a></li>
                 <li><a href="./login.php">LOGIN</a></li>
-                <li><a href="./registrazione.php">REGISTRAZIONE</a></li>
+                <li><a href="./registration.php">REGISTRAZIONE</a></li>
             </ul>
         </nav>
     </header>
-
-    <!-- Il resto del tuo contenuto HTML -->
