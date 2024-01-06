@@ -1,8 +1,9 @@
+/* style.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: white;
+    color: black;
 }
 
 .recensione {
@@ -23,24 +24,38 @@ body {
     margin-bottom: 10px;
 }
 
-/* Stile per il contenitore delle sezioni */
-.header-container {
+/* Barra di navigazione */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     background-color: black;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
 }
 
-/* Stile per le sezioni */
-.header-sections {
-    display: flex;
-    align-items: center;
+li {
+    float: left;
 }
 
-/* Stile per il link HOME */
-.home-link {
-    text-decoration: none;
+li a {
+    display: block;
     color: white;
-    margin-right: 20px;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+ 
+.link_nav-bar {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.link_nav-bar:hover {
+    background-color: #5a0000;
+}
+
+.link_nav-bar.active {
+    background-color: #007e1f;
 }
