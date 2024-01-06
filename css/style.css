@@ -1,6 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 0;
+    color: white;
 }
 
 .recensione {
@@ -19,4 +21,26 @@ body {
 #recensioneForm button {
     display: block;
     margin-bottom: 10px;
+}
+
+/* Stile per il contenitore delle sezioni */
+.header-container {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+/* Stile per le sezioni */
+.header-sections {
+    display: flex;
+    align-items: center;
+}
+
+/* Stile per il link HOME */
+.home-link {
+    text-decoration: none;
+    color: white;
+    margin-right: 20px;
 }
