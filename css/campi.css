@@ -1,0 +1,12 @@
+/* campi.css */
+
+body {
+    text-align: left; /* Allinea il testo a sinistra */
+}
+
+img {
+    display: block; /* Rende le immagini un blocco separato */
+    margin: 10px 0; /* Aggiunge margine sopra e sotto ogni immagine */
+    width: 300px; /* Imposta la larghezza di tutte le immagini a 300 pixel */
+    height: auto; /* Mantiene l'aspetto proporzionato rispetto alla larghezza */
+}
