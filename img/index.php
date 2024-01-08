@@ -44,7 +44,7 @@ if (isset($_SESSION['username'])){
 </form>
 
 <?php
-include_once '../includes/campi.inc.php';
+include_once './campi.php';
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
