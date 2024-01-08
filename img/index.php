@@ -9,7 +9,7 @@ if (isset($_SESSION['username'])){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,3 +55,7 @@ include_once '../img/campi.php';
 <script src="../js/barraric.js"></script>
 </body>
 </html>
+
+<?php
+include_once './footer.php';
+?>
