@@ -1,8 +1,5 @@
 <?php
 include_once './header.php';
-?>
-
-<?php
 if (isset($_SESSION['username'])){
     echo '<p>Bentornato ' . $_SESSION['username'] . '</p>';
 }
@@ -42,12 +39,12 @@ if (isset($_SESSION['username'])){
     </form>
 </div>
 
-<input type="text" id="searchInput" placeholder="Cerca recensioni: ...">
-
-<ul id="searchResults"></ul>
+<form id="search_bar">
+    <input type="text" id="searchInput" placeholder="Cerca recensioni: ...">
+</form>
 
 <?php
-include_once '../img/campi.php';
+include_once '../includes/campi.inc.php';
 ?>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
