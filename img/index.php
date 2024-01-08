@@ -2,6 +2,11 @@
 include_once './header.php';
 ?>
 
+<?php
+if (isset($_SESSION['username'])){
+    echo '<p>Bentornato ' . $_SESSION['username'] . '</p>';
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
