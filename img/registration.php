@@ -30,8 +30,6 @@ include_once './header.php';
         </form>
     </div>
 
-<script src="../js/utenti_main.js"></script>
-
 <?php
     if (isset($_GET['error'])) {
         if($_GET['error'] == 'emptyinput'){

@@ -3,7 +3,7 @@ include_once './header.php';
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <!-- Questo è il codice che precedentemente era stato usato in login.html (solo la parte di login)-->
 <head>
 
