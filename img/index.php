@@ -46,6 +46,10 @@ if (isset($_SESSION['username'])){
 
 <ul id="searchResults"></ul>
 
+<?php
+include_once '../img/campi.php';
+?>
+
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/barraric.js"></script>
