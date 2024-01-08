@@ -1,4 +1,8 @@
 <!-- header.php -->
+<?php
+    session_start();
+?>
+
 <style>
     <?php include '../css/style.css'; ?>
 </style>
@@ -22,7 +26,7 @@
                 <?php
                 if (isset($_SESSION['username'])){
                     echo '<li><a class="link_nav-bar" href="./profilo.php" >PROFILO</a></li>';
-                    echo '<li><a class="link_nav-bar" href="./logout.php">LOGOUT</a></li>';
+                    echo '<li><a class="link_nav-bar" href="../includes/logout.inc.php">LOGOUT</a></li>';
                 }
                 else{
                     echo '<li><a class="link_nav-bar" href="./login.php">LOGIN</a></li>';
