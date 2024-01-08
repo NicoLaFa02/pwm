@@ -1,12 +1,6 @@
 <?php
-
-?>
-
-<?php
-$percorsoImmagine1 = 'https://www.messinasportiva.it/wp-content/uploads/2015/05/1capo-1280x720.jpg';
-$percorsoImmagine2 = '';
-$percorsoImmagine3 = '';
-$percorsoImmagine4 = '';
+require_once '../includes/dbh.inc.php';
+require_once '../includes/functions.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -16,12 +10,12 @@ $percorsoImmagine4 = '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/campi.css">
 </head>
+<script>
+    // "$i" andrà sostituito con il campo con l'ultimo 
+for ($i = 1; $i < 3; $i++) {
+    stampaCampo($conn, $i);
+}</script>
 <body>
-    
-<img src="<?php echo $percorsoImmagine1; ?>" alt="Immagine 1">
-<img src="<?php echo $percorsoImmagine2; ?>" alt="Immagine 2">
-<img src="<?php echo $percorsoImmagine3; ?>" alt="Immagine 3">
-<img src="<?php echo $percorsoImmagine4; ?>" alt="Immagine 4">
 
 </body>
 </html>
