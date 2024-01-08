@@ -120,3 +120,68 @@ function loginUser($conn, $username, $pwd){
         exit();
     }
 }
+
+// Funzione per ottenere le informazioni dal database
+function getCampoInfo($conn, $campoID) {
+    // Esegui la query per ottenere le informazioni del campo dal database
+    $sql = "SELECT nomeCampo, votazioneCampo, url_foto FROM campoDaCalcio WHERE campoID = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../img/index.php?error=stmtfailed");
+        exit(); 
+    }
+    mysqli_stmt_bind_param($stmt, "i", $campoID); 
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    // Ottieni il risultato della query
+    if ($row = mysqli_fetch_assoc($result)) {
+        return $row;
+    } else {
+        return null;
+    }
+}
+
+
+function setLatestReview($conn, $campoID) {
+    
+    $currentTimestamp = date('Y-m-d H:i:s'); // timestamp corrente
+
+    // Query per aggiornare il campo ultima_rec
+    $sql = "UPDATE campoDaCalcio SET ultima_rec = ? WHERE campoID = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../img/index.php?error=stmtfailed");
+        exit(); 
+    }
+    mysqli_stmt_bind_param($stmt, "si", $currentTimestamp, $campoID);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    // Ottieni il risultato della query
+    if ($row = mysqli_fetch_assoc($result)) {
+        return $row;
+    } else {
+        return null;
+    }
+}
+
+function stampaCampo($conn, $campoID){
+    $campoInfo = getCampoInfo($conn, $campoID);
+
+// Stampare le informazioni ottenute
+if ($campoInfo) {
+    // Se ci sono informazioni sul campo, stampale
+    $nomeCampo = $campoInfo['nomeCampo'];
+    $votazioneCampo = $campoInfo['votazioneCampo'];
+    $urlFoto = $campoInfo['url_foto'];
+
+    // Stampare le informazioni nel formato desiderato
+    echo "<div>";
+    echo "<h3>$nomeCampo</h3>"; // Stampa il nome del campo sopra la foto
+    echo "<img src='$urlFoto' alt='Foto del campo'>"; // Stampa l'immagine del campo
+    echo "<p>Votazione: $votazioneCampo</p>"; // Stampa la votazione sotto la foto
+    echo "</div>";
+} else {
+    // Se non ci sono informazioni, stampa un messaggio di errore o gestisci diversamente
+    echo "Nessuna informazione trovata per il campo con ID $campoID";
+}
+}
