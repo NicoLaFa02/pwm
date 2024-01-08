@@ -1,17 +1,26 @@
-<?php
+<?php 
     session_start();
-    //se non è stato effettuato l'accesso allora non è possibile accedere
     if (!isset($_SESSION['username'])){
         header("location: ../img/index.php");
         exit();
     }
-    $username = $_SESSION["username"];
-    $email = $_SESSION["email"];
-    $data_creaz = $_SESSION["data_creazione_acc"];
-    $uid = $_SESSION["uid"];
 
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
+
+    // Query per ottenere le informazioni personali
+    $stmt = $conn->prepare("SELECT * FROM utenti WHERE username = ?");
+    $stmt->bind_param("s", $_SESSION["username"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+    }
+    $username = $user["username"];
+    $email = $user["email"];
+    $data_creaz = $user["data_creazione_acc"];
+    $uid = $user["UID "];
+
 ?>
 
 
@@ -30,10 +39,10 @@
         <h2>Benvenuto nel tuo profilo <?php echo $username ; ?> </h2>
         <div id="informazioni-utente">
             <h4>Le tue informazioni</h4>
-            <p id="nome-utente">Nome utente <?php echo $username ; ?> </p>
-            <p id="e-mail">Email <?php echo $email ; ?> </p>
-            <p id="data-creazione-account">Data creazione dell'account <?php echo $data_creaz ; ?> </p>
-            <p id="e-mail">ID utente <?php echo $uid ; ?> </p>
+            <p id="e-mail">ID utente: <?php echo $uid ; ?> </p>
+            <p id="nome-utente">Nome utente: <?php echo $username ; ?> </p>
+            <p id="e-mail">Email: <?php echo $email ; ?> </p>
+            <p id="data-creazione-account">Data creazione dell'account: <?php echo $data_creaz ; ?> </p>
         </div>
     </div>
     
