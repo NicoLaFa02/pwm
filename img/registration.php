@@ -2,44 +2,6 @@
 include_once './header.php';
 ?>
 
-<?php
-$host = "localhost";
-$username_db = "root";
-$password_db = "";
-$database = "pwm";
-
-//creazione connessione
-$conn = new mysqli($host, $username_db, $password_db, $database);
-
-//verifica connessione
-if ($conn->connect_error) {
-    die("Connessione al database fallita: " . $conn->connect_error);
-}
-
-
-$username = mysqli_real_escape_string($conn, $_POST['username']);
-$password = mysqli_real_escape_string($conn, $_POST['password']);
-$email = mysqli_real_escape_string($conn, $_POST['email']);
-
-
-$sql = "INSERT INTO utenti (username, password, email)
-VALUES ('$username', '$password', '$email')";
-
-
-if ($conn->query($sql) === TRUE) {
-    $response = array("message" => "Nuovo utente registrato con successo");
-    echo json_encode($response);
-} else {
-    $response = array("error" => "Errore nell'inserimento dell'utente: " . $conn->error);
-    echo json_encode($response);
-}
-
-
-// Chiusura della connessione
-$conn->close();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <!-- Questo è il codice che precedentemente era stato usato in login.html (solo la parte di registrazione)-->
@@ -59,18 +21,44 @@ $conn->close();
         <br>
         <p>Inserire email, username e password</p>
         <br>
-        <form onsubmit="registra_utente()">
+        <form action="../includes/signup.inc.php" method="post">
             <input type="email" name="email" placeholder="Inserisci la tua email"></input>
-            <p></p>
             <input type="text" name="username" placeholder="Inserisci il tuo username"></input>
-            <p></p>
-            <input type="password" name="password" placeholder="Inserisci la tua password"> </input>
-            <p></p>
-            <input type="submit" value="Registra">
+            <input type="password" name="pwd" placeholder="Inserisci la tua password"> </input>
+            <input type="password" name="pwdrepeat" placeholder="Ripeti la tua password"> </input>
+            <button type="submit" name="submit">Registrati</button>
         </form>
     </div>
 
 <script src="../js/utenti_main.js"></script>
+
+<?php
+    if (isset($_GET['error'])) {
+        if($_GET['error'] == 'emptyinput'){
+            echo '<p>Riempi tutti i campi!</p>';
+        }
+        if($_GET['error'] == 'invalidusername'){
+            echo '<p>Username non valido! Inserisci solo caratteri alfanumerici!</p>';
+        }
+        if($_GET['error'] == 'invalidemail'){
+            echo '<p>Email non valida! Inserisci solo caratteri alfanumerici!</p>';
+        }
+        if($_GET['error'] == 'passwordsdontmatch'){
+            echo '<p>Le password non combaciano!</p>';
+        }
+        if($_GET['error'] == 'usernametaken'){
+            echo '<p>Username o mail non disponibile!</p>';
+        }
+        if($_GET['error'] == 'stmtfailed'){
+            echo '<p>Qualcosa è andato storto, prova di nuovo</p>';
+        }
+        if($_GET['error'] == 'none'){
+            echo '<p>Registrazione effettuata con successo!</p>';
+        }
+        
+    }
+?>
+
 </body>
 </html>
 
