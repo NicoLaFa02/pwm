@@ -19,9 +19,17 @@
         <nav class="header-sections">
             <ul>
                 <li><a class="link_nav-bar" href="../img/">HOME</a></li>
-                <li><a class="link_nav-bar" href="./profilo.php" >PROFILO</a></li>
-                <li><a class="link_nav-bar" href="./login.php">LOGIN</a></li>
-                <li><a class="link_nav-bar" href="./registration.php">REGISTRAZIONE</a></li>
+                <?php
+                if (isset($_SESSION['username'])){
+                    echo '<li><a class="link_nav-bar" href="./profilo.php" >PROFILO</a></li>';
+                    echo '<li><a class="link_nav-bar" href="./logout.php">LOGOUT</a></li>';
+                }
+                else{
+                    echo '<li><a class="link_nav-bar" href="./login.php">LOGIN</a></li>';
+                    echo '<li><a class="link_nav-bar" href="./registration.php">REGISTRAZIONE</a></li>';
+                }
+                ?>
+                
             </ul>
         </nav>
     </header>
