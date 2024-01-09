@@ -53,7 +53,7 @@ li a {
 }
 
 .link_nav-bar:hover {
-    background-color: #5a0000;
+    background-color: green;
 }
 
 .link_nav-bar.active {
