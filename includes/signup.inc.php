@@ -26,7 +26,7 @@ if(isset($_POST["submit"])){
         exit(); 
     }
 
-    if (pwdMatch($pwd, $pwdrepeat) !== false) {
+    if (fieldMatch($pwd, $pwdrepeat) !== false) {
         header("location: ../img/registration.php?error=passwordsdontmatch");
         exit(); 
     }
@@ -36,8 +36,7 @@ if(isset($_POST["submit"])){
         exit(); 
     }
     createUser($conn, $username, $email, $pwd);
-    echo"Sei dentro";
-
+ 
 
 }
 else{
