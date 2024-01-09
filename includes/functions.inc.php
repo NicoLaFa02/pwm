@@ -167,21 +167,48 @@ function setLatestReview($conn, $campoID) {
 function stampaCampo($conn, $campoID){
     $campoInfo = getCampoInfo($conn, $campoID);
 
-// Stampare le informazioni ottenute
-if ($campoInfo) {
-    // Se ci sono informazioni sul campo, stampale
-    $nomeCampo = $campoInfo['nomeCampo'];
-    $votazioneCampo = $campoInfo['votazioneCampo'];
-    $urlFoto = $campoInfo['url_foto'];
+    // Stampare le informazioni ottenute
+    if ($campoInfo) {
+        // Se ci sono informazioni sul campo, stampale
+        $nomeCampo = $campoInfo['nomeCampo'];
+        $votazioneCampo = $campoInfo['votazioneCampo'];
+        $urlFoto = $campoInfo['url_foto'];
 
-    // Stampare le informazioni nel formato desiderato
-    echo "<div>";
-    echo "<h3>$nomeCampo</h3>"; // Stampa il nome del campo sopra la foto
-    echo "<img src='$urlFoto' alt='Foto del campo'>"; // Stampa l'immagine del campo
-    echo "<p>Votazione: $votazioneCampo</p>"; // Stampa la votazione sotto la foto
-    echo "</div>";
-} else {
-    // Se non ci sono informazioni, stampa un messaggio di errore o gestisci diversamente
-    echo "Nessuna informazione trovata per il campo con ID $campoID";
+        // Stampare le informazioni nel formato desiderato
+        echo "<div>";
+        echo "<h3>$nomeCampo</h3>"; // Stampa il nome del campo sopra la foto
+        echo "<img src='$urlFoto' alt='Foto del campo'>"; // Stampa l'immagine del campo
+        echo "<p>Votazione: $votazioneCampo</p>"; // Stampa la votazione sotto la foto
+        // Aggiungi un pulsante per andare a recensioni.php passando l'ID del campo
+        echo "<a href='recensioni.php?campoID=$campoID'><button>Vai alle recensioni</button></a>";
+        echo "</div>";
+    } else {
+        // Se non ci sono informazioni, stampa un messaggio di errore o gestisci diversamente
+        echo "Nessuna informazione trovata per il campo con ID $campoID";
+    }
 }
+
+function getRecensioniCampo($conn, $campoID) {
+    //questa query serve a selezionare le recensioni collegate a quel determinato campoID unendo le informazioni relative all'utente recensore
+    $sql = "SELECT recensioni.*, utenti.* 
+            FROM recensioni 
+            JOIN utenti ON recensioni.UID = utenti.UserID 
+            WHERE recensioni.campoID = ?";
+    
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        return null;
+    } else {
+        mysqli_stmt_bind_param($stmt, "i", $campoID);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        
+        $recensioni = array();
+        while ($row = mysqli_fetch_assoc($result)) {
+            $recensioni[] = $row;
+        }
+        
+        return $recensioni;
+    }
 }
+
