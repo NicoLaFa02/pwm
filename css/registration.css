@@ -25,3 +25,9 @@ body {
 #form_registrazione {
     text-align: center;
 }
+
+#messaggi_errori {
+    margin-top: 20px; /* Aggiunge spazio sopra gli errori */
+    color: green;
+    text-align: center;
+}

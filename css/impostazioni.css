@@ -1,0 +1,11 @@
+body {
+    background-color: #cfe8c5; /* Colore di sfondo della pagina */
+    margin: 0; /* Rimuove il margine predefinito del corpo */
+    padding: 0; /* Rimuove il padding predefinito del corpo */
+}
+
+.settings-container {
+    color: green; 
+    margin-top: 25px;  /* Aggiunge spazio sopra il messaggio */
+    text-align: center;
+}

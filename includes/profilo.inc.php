@@ -23,7 +23,6 @@
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -35,10 +34,13 @@
 </head>
 
 <body>
-    <div>
-        <h2>Benvenuto nel tuo profilo <?php echo $username ; ?> </h2>
-        <div id="informazioni-utente">
+    <div id="Benvenuto_profilo">
+        <h1>Benvenuto nel tuo profilo <?php echo $username ; ?> </h1>
+        <br>
+        <div id="informazioni_utente">
             <h4>Le tue informazioni</h4>
+        </div>
+        <br>
             <p id="e-mail">ID utente: <?php echo $uid ; ?> </p>
             <p id="nome-utente">Nome utente: <?php echo $username ; ?> </p>
             <p id="e-mail">Email: <?php echo $email ; ?> </p>
@@ -50,5 +52,7 @@
     <div></div>
     <div></div>
     <div></div>
+    
+
     
 </body>

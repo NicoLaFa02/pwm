@@ -1,0 +1,17 @@
+body {
+    background-color: #cfe8c5; /* Colore di sfondo della pagina */
+    margin: 0; /* Rimuove il margine predefinito del corpo */
+    padding: 0; /* Rimuove il padding predefinito del corpo */
+}
+
+#Benvenuto_profilo {
+    color: green; /* Cambia il colore del testo a verde */
+    text-align: center; /* Centra il testo */
+    margin-bottom: 20px; /* Aggiunge spazio sotto il titolo */
+}
+
+#informazione_utente {
+    color: green; /* Cambia il colore del testo a verde */ 
+    text-align: center; /* Centra il testo */
+    margin-bottom: 20px; /* Aggiunge spazio sotto il titolo */
+}
