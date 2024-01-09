@@ -62,6 +62,31 @@ li a {
     background-color: green;
 }
 
+.header-content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black; /* Colore di sfondo della barra */
+    color: white; /* Colore del testo sulla barra */
+    text-align: center; /* Centra il testo */
+    padding: 10px; /* Aggiunge spazio interno alla barra */
+}
+
+
+.footer-content {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: black; /* Colore di sfondo della barra */
+    color: white; /* Colore del testo sulla barra */
+    text-align: center; /* Centra il testo */
+    padding: 10px; /* Aggiunge spazio interno alla barra */
+}
+
+
+
 .link_nav-bar.active {
     background-color: #007e1f;
 }
