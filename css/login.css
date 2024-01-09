@@ -1,45 +1,45 @@
 /* Aggiungi o modifica queste regole CSS nel tuo file login.css */
 
 body {
-    background-color: #cfe8c5; /* Colore di sfondo della pagina */
-    margin: 0; /* Rimuove il margine predefinito del corpo */
-    padding: 0; /* Rimuove il padding predefinito del corpo */
+    background-image: url('https://static.vecteezy.com/ti/vettori-gratis/p3/5488932-vettore-campo-di-calcio-o-futsal-vista-dall-alto-vettoriale.jpg'); /* Specifica il percorso dell'immagine */
+    background-size: cover; /* Adatta l'immagine alla dimensione del corpo */
+    background-position: center; /* Centra l'immagine */
+    background-repeat: no-repeat; /* Impedisce la ripetizione dell'immagine */
+    color: white; /* Cambia il colore del testo per renderlo leggibile sull'immagine di sfondo */
 }
 
 #div_login {
-    position: relative;
-}
-
-
-#titolo_login {
-    color: green; /* Cambia il colore del testo a verde */
+    color: black; 
     font-size: 2em; /* Imposta la dimensione del testo */
     text-align: center; /* Centra il testo */
     margin-bottom: 20px; /* Aggiunge spazio sotto il titolo */
-    margin-left: 20px;
+    font-size: 20px;
 }
 
 #messaggio_utente_password {
-    color: green; 
-    margin-top: 30px;  /* Aggiunge spazio sopra il messaggio */
+    color: black; 
+    margin-top: 25px;  /* Aggiunge spazio sopra il messaggio */
     text-align: center;
-    margin-left: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
 }
 
 #form_login {
     text-align: center;
-    margin-left: 20px;
 }
 
 #messaggio_registrazione{
-    color: green;
+    color: black;
     margin-top: 20px;
     text-align: center;
-    margin-left: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
 
 #messaggi_errori_login {
     margin-top: 20px; /* Aggiunge spazio sopra gli errori */
-    color: green;
+    color: black;
     text-align: center;
-} 
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
 }
