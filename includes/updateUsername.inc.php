@@ -8,7 +8,6 @@ if(!isset($_POST["submit"])){
 require_once './dbh.inc.php';
 require_once './functions.inc.php';
 
-echo 'balotelli';
 $actualusername = $_SESSION['username'];
 $oldusername = $_POST["oldUsername"];
 $newusername = $_POST["newUsername"];
