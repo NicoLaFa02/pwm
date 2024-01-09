@@ -89,12 +89,8 @@ if (isset($_GET['error'])) {
         echo '<p>Riempi tutti i campi!</p>';
     }
 
-    if($_GET['error'] == 'noneU'){
-        echo "<p>Cambio username riuscito con successo!</p>";
-    }
-
-    if($_GET['error'] == 'noneE'){
-        echo "<p>Cambio email riuscito con successo!</p>";
+    if($_GET['error'] == 'none'){
+        echo "<p>Cambio credenziali riuscito con successo!</p>";
     }
 
     // gestioni errori modifica username
