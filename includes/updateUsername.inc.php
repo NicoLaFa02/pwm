@@ -24,7 +24,7 @@ $pwd = $user["password"];
 
 
 
-if (emptyInputLogin($oldusername, $newusername) !== false) {
+if (emptyInputCheck($oldusername, $newusername) !== false) {
     header("location: ../img/impostazioni.php?error=emptyinput");
     exit(); 
 }

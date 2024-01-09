@@ -7,7 +7,7 @@ if(isset($_POST["submit"])){
     require_once 'dbh.inc.php';
     require_once 'functions.inc.php';
 
-    if (emptyInputLogin($username, $pwd) !== false) {
+    if (emptyInputCheck($username, $pwd) !== false) {
         header("location: ../img/login.php?error=emptyinput");
         exit(); 
     }
