@@ -36,4 +36,10 @@ body {
     margin-top: 20px;
     text-align: center;
     margin-left: 20px;
+
+#messaggi_errori_login {
+    margin-top: 20px; /* Aggiunge spazio sopra gli errori */
+    color: green;
+    text-align: center;
+} 
 }
