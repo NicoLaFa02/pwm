@@ -1,1 +1,39 @@
-/* File css per la pagina login */
+/* Aggiungi o modifica queste regole CSS nel tuo file login.css */
+
+body {
+    background-color: #cfe8c5; /* Colore di sfondo della pagina */
+    margin: 0; /* Rimuove il margine predefinito del corpo */
+    padding: 0; /* Rimuove il padding predefinito del corpo */
+}
+
+#div_login {
+    position: relative;
+}
+
+
+#titolo_login {
+    color: green; /* Cambia il colore del testo a verde */
+    font-size: 2em; /* Imposta la dimensione del testo */
+    text-align: center; /* Centra il testo */
+    margin-bottom: 20px; /* Aggiunge spazio sotto il titolo */
+    margin-left: 20px;
+}
+
+#messaggio_utente_password {
+    color: green; 
+    margin-top: 30px;  /* Aggiunge spazio sopra il messaggio */
+    text-align: center;
+    margin-left: 20px;
+}
+
+#form_login {
+    text-align: center;
+    margin-left: 20px;
+}
+
+#messaggio_registrazione{
+    color: green;
+    margin-top: 20px;
+    text-align: center;
+    margin-left: 20px;
+}
