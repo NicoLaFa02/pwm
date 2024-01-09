@@ -1,25 +1,29 @@
 <?php
-$utente_id = 1; // Sostituisci con l'ID dell'utente autenticato
-$testo_recensione = "Campo da calcio fantastico!";
-$voto = 5; // Puoi utilizzare un sistema di punteggio da 1 a 5, ad esempio
+require_once '../includes/dbh.inc.php';
+require_once '../includes/functions.inc.php';
 
-// Connessione al database (assicurati di configurare correttamente le tue credenziali)
-$connessione = new mysqli("localhost", "nome_utente", "password", "nome_database");
+if (isset($_GET['campoID'])) {
+    $campoID = $_GET['campoID'];
 
-// Verifica della connessione
-if ($connessione->connect_error) {
-    die("Connessione al database fallita: " . $connessione->connect_error);
-}
+    // Ottieni le recensioni per il campo specificato
+    $recensioni = getRecensioniCampo($conn, $campoID);
 
-// Query per inserire la recensione nella tabella "Recensioni"
-$query = "INSERT INTO Recensioni (utente_id, testo, voto) VALUES ('$utente_id', '$testo_recensione', '$voto')";
+    if ($recensioni) {
+        // Se ci sono recensioni, visualizzale
+        foreach ($recensioni as $recensione) {
+            $nomeUtente = $recensione['username']; // Supponendo che 'username' sia il campo relativo al nome utente
 
-if ($connessione->query($query) === TRUE) {
-    echo "Recensione inserita con successo";
+            // Visualizza le informazioni della recensione
+            echo "<div>";
+            echo "<p>Recensione di: $nomeUtente</p>";
+            echo "<p>Voto: {$recensione['voto']}</p>"; // Supponendo che 'voto' sia il campo relativo al voto
+            echo "<p>Testo: {$recensione['testo']}</p>"; // Supponendo che 'testo' sia il campo relativo al testo della recensione
+            echo "</div>";
+        }
+    } else {
+        echo "Nessuna recensione trovata per questo campo.";
+    }
 } else {
-    echo "Errore durante l'inserimento della recensione: " . $connessione->error;
+    echo "Campo non specificato.";
 }
-
-// Chiudi la connessione al database
-$connessione->close();
 ?>
