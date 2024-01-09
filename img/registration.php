@@ -1,7 +1,3 @@
-<?php
-include_once './header.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <!-- Questo è il codice che precedentemente era stato usato in login.html (solo la parte di registrazione)-->
@@ -9,26 +5,36 @@ include_once './header.php';
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIGN UP</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="../css/registration.css">
 
 </head>
 
 <body>
+<?php include_once './header.php';?>
 
-    <div id="div_registrazione">
-        <h2 id="titolo_registrazione">Registrazione</h2>
-        <br>
-        <p>Inserire email, username e password</p>
-        <br>
-        <form action="../includes/signup.inc.php" method="post">
-            <input type="email" name="email" placeholder="Inserisci la tua email"></input>
-            <input type="text" name="username" placeholder="Inserisci il tuo username"></input>
-            <input type="password" name="pwd" placeholder="Inserisci la tua password"> </input>
-            <input type="password" name="pwdrepeat" placeholder="Ripeti la tua password"> </input>
-            <button type="submit" name="submit">Registrati</button>
-        </form>
+<div id="div_registrazione">
+    <h1 id="titolo_registrazione">REGISTRAZIONE</h1>
+    <br>
+    <div id="messaggio_email_utente_password">
+    <p>Inserire email, username e password: </p>
     </div>
+    <br>
+    <form action="../includes/signup.inc.php" method="post">
+        <div id="form_registrazione">
+        <input type="email" name="email" placeholder="Inserisci la tua email"></input>
+        <br><br>
+        <input type="text" name="username" placeholder="Inserisci il tuo username"></input>
+        <br><br>
+        <input type="password" name="pwd" placeholder="Inserisci la tua password"> </input>
+        <br><br>
+        <input type="password" name="pwdrepeat" placeholder="Ripeti la tua password"> </input>
+        <br><br>
+        <button type="submit" name="submit">Registrati</button>
+        </div>
+    </form>
+    <br>
+</div>
 
 <?php
     if (isset($_GET['error'])) {
@@ -57,9 +63,12 @@ include_once './header.php';
     }
 ?>
 
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+<?php include_once './footer.php';?>
+
 </body>
 </html>
 
-<?php
-include_once './footer.php';
-?>
