@@ -36,6 +36,8 @@
     <br>
 </div>
 
+
+<div id="messaggi_errori">
 <?php
     if (isset($_GET['error'])) {
         if($_GET['error'] == 'emptyinput'){
@@ -62,7 +64,10 @@
         
     }
 ?>
+</div>
+<br>
 
+    
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
