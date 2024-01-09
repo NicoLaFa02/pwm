@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN</title>
     <link rel="stylesheet" href="../css/registration.css">
+    <style>
+    h1 {
+        text-shadow: 2px 2px green;
+    }
+</style>
 
 </head>
 
@@ -15,7 +20,7 @@
 
 <div id="div_registrazione">
     <h1 id="titolo_registrazione">REGISTRAZIONE</h1>
-    <br>
+    <br><br><br><br>
     <div id="messaggio_email_utente_password">
     <p>Inserire email, username e password: </p>
     </div>
