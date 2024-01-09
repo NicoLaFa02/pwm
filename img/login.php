@@ -1,39 +1,38 @@
-<?php
-include_once './header.php';
-?>
-
 <!DOCTYPE html>
 <html lang="it">
-<!-- Questo è il codice che precedentemente era stato usato in login.html (solo la parte di login)-->
+
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN</title>
-    <link rel="stylesheet" href="../css/login.css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LOGIN</title>
+<link rel="stylesheet" href="../css/login.css">
 </head>
 
 <body>
+<?php include_once './header.php'; ?>
 
-    <div id="div_login">
-        <h2 id="titolo_login">Login</h2>
-        <br>
-        <p>Inserire nome utente e password</p>
-        <br>
-        <form action="../includes/login.inc.php" method="post">
-            <input type="text" name="username" placeholder="Inserisci username o email"></input>
-            <input type="password" name="password" placeholder="Inserisci la tua password"> </input>
-            <button type="submit" name="submit">Accedi</button>
-
-            <p>Non sei ancora registrato?</p>
-            <a href="./registration.php">Registrati ora</a>
-
-            
-            
-        </form>
+<div id="div_login">
+    <h1 id="titolo_login">LOGIN</h1>
+    <br>
+    <div id="messaggio_utente_password">
+    <p>Inserire nome utente e password: </p>
     </div>
-
+    <form action="../includes/login.inc.php" method="post">
+        <div id="form_login">
+        <input type="text" name="username" placeholder="Inserisci username o email">
+        <br><br>
+        <input type="password" name="password" placeholder="Inserisci la tua password">
+        <br><br>
+        <button type="submit" name="submit">Accedi</button>
+        </div>
+        <br><br><br>
+        <div id="messaggio_registrazione">
+        <p>Non sei ancora registrato?</p>
+        <a href="./registration.php">Registrati ora</a>
+        </div>
+    </form>
+    <br>
+</div>
 
 <!-- Gestione errori php -->
 <?php
@@ -50,9 +49,13 @@ include_once './header.php';
     }
 ?>
 
-</body>
-</html>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
 
 <?php
 include_once './footer.php';
 ?>
+
+</body>
+</html>
