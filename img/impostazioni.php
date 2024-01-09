@@ -44,13 +44,12 @@ if (!isset($_SESSION['username'])){
         <h2>Modifica Email</h2>
         <form action="../includes/updateEmail.inc.php" method="post">
             <label for="oldEmail">Vecchia Email:</label>
-            <input type="email" id="oldEmail" name="oldEmail" value="<?php echo $userData['email']; ?>">
+            <input type="email" id="oldEmail" name="oldEmail" placeholder="inserisci qua la tua vecchia email">
             
             <label for="newEmail">Nuova Email:</label>
-            <input type="email" id="newEmail" name="newEmail">
+            <input type="email" id="newEmail" name="newEmail" placeholder="inserisci qua la tua nuova email">
             
-            <button type="submit" name="action" value="changeEmail">Cambia email</button>
-        </form>
+            <button type="submit" name="submit">Cambia email</button>        </form>
         
         <hr>
         
@@ -66,8 +65,7 @@ if (!isset($_SESSION['username'])){
             <label for="confirmNewPassword">Conferma Nuova Password:</label>
             <input type="password" id="confirmNewPassword" name="confirmNewPassword">
             
-            <button type="submit" name="action" value="changePassword">Cambia password</button>
-        </form>
+            <button type="submit" name="submit">Cambia password</button>        </form>
         
         <hr>
         
@@ -86,27 +84,59 @@ if (!isset($_SESSION['username'])){
 <?php
 //gestione degli errori php
 if (isset($_GET['error'])) {
+    //gestione generale
     if($_GET['error'] == 'emptyinput'){
         echo '<p>Riempi tutti i campi!</p>';
     }
+
+    if($_GET['error'] == 'noneU'){
+        echo "<p>Cambio username riuscito con successo!</p>";
+    }
+
+    if($_GET['error'] == 'noneE'){
+        echo "<p>Cambio email riuscito con successo!</p>";
+    }
+
+    // gestioni errori modifica username
     if($_GET['error'] == 'usernamedontmatch'){
         echo '<p>Inserisci il tuo vecchio nome utente!</p>';
     }
+
     if($_GET['error'] == 'sameusername'){
-        echo "<p>Non puoi cambiare il tuo username con lo stesso username!</p>";
+        echo "<p>Non puoi cambiare il tuo username con uno uguale!</p>";
     }
+
     if($_GET['error'] == 'invalidusername'){
         echo "<p>L'username inserito non è valido!</p>";
     }
+
     if($_GET['error'] == 'usernametaken'){
         echo "<p>Esiste già un utente con questo nome!</p>";
     }
+
     if($_GET['error'] == 'updatefailed'){
         echo "<p>C'è stato un problema con l'aggiornamento!</p>";
     }
-    if($_GET['error'] == 'none'){
-        echo "<p>Cambio username riuscito con successo!</p>";
+
+    //gestione errori della parte di modifica email
+    if($_GET['error'] == 'emaildontmatch'){
+        echo '<p>Inserisci la tua vecchia email!</p>';
     }
+    
+    if($_GET['error'] == 'sameemail'){
+        echo "<p>Non puoi cambiare la tua email con una uguale!</p>";
+    }
+
+    if($_GET['error'] == 'invalidemail'){
+        echo "<p>La mail inserita non è valida!</p>";
+    }
+
+    if($_GET['error'] == 'emailtaken'){
+        echo "<p>Questa email non è disponibile!</p>";
+    }
+
+    //gestione errori modifica password
+
 }
 ?>
 <?php
