@@ -19,7 +19,7 @@
     $username = $user["username"];
     $email = $user["email"];
     $data_creaz = $user["data_creazione_acc"];
-    $uid = $user["UID "];
+    $uid = $user["UID"];
 
 ?>
 
