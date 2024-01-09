@@ -33,9 +33,9 @@ function invalidEmail($email){
     return $result;
 }
 
-function pwdMatch($pwd, $pwdrepeat){
+function fieldMatch($firstField, $secondField){
     $result = null;
-    if ($pwd !== $pwdrepeat){
+    if ($firstField !== $secondField){
         $result = true;
     }
     else{  
@@ -121,6 +121,30 @@ function loginUser($conn, $username, $pwd){
     }
 }
 
+function reLoginUser($conn, $username, $pwd){
+    $userExists = usernameExists($conn, $username, $username);
+    //mettere di nuovo $username come 3 parametro garantisce che il controllo nel DB venga effettuato sia sulla mail che sull'username,
+    // in modo da poter effettuare l'accesso con uno o con l'altro
+    if ($userExists === false){
+        header("location: ../img/login.php?error=wronglogin");
+        exit();
+    }
+
+    $pwdHashed = $userExists['password'];
+    
+    if ($pwdHashed === $pwd){
+        session_start();
+        $_SESSION["uid"] = $userExists["uid"];
+        $_SESSION["username"] = $userExists["username"];
+        header("location: ../img/impostazioni.php?error=none");
+        exit(); 
+    }
+    else{
+        header("location: ../img/login.php?error=incorrectpassword");
+        exit();
+    }
+}
+
 // Funzione per ottenere le informazioni dal database
 function getCampoInfo($conn, $campoID) {
     // Esegui la query per ottenere le informazioni del campo dal database
@@ -180,7 +204,7 @@ function stampaCampo($conn, $campoID){
         echo "<img src='$urlFoto' alt='Foto del campo'>"; // Stampa l'immagine del campo
         echo "<p>Votazione: $votazioneCampo</p>"; // Stampa la votazione sotto la foto
         // Aggiungi un pulsante per andare a recensioni.php passando l'ID del campo
-        echo "<a href='recensioni.php?campoID=$campoID'><button>Vai alle recensioni</button></a>";
+        echo "<a href='../img/recensioni.php?campoID=$campoID'><button>Vai alle recensioni</button></a>";
         echo "</div>";
     } else {
         // Se non ci sono informazioni, stampa un messaggio di errore o gestisci diversamente
@@ -212,3 +236,16 @@ function getRecensioniCampo($conn, $campoID) {
     }
 }
 
+function updateCampo($conn, $tabella, $record, $vecchio_valore, $nuovo_valore) {
+    $sql = "UPDATE $tabella SET $record = ? WHERE $record = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        return false;
+    }
+    mysqli_stmt_bind_param($stmt, "ss", $nuovo_valore, $vecchio_valore);
+    if (!mysqli_stmt_execute($stmt)) {
+        return false;
+    }
+    mysqli_stmt_close($stmt);
+    return true;
+}
