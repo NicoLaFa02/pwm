@@ -85,8 +85,25 @@ li a {
     padding: 10px; /* Aggiunge spazio interno alla barra */
 }
 
-
-
 .link_nav-bar.active {
     background-color: #007e1f;
 }
+
+
+p {
+    color: black;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 100px;
+}
+
+
+#div_titolo {
+    color: black; 
+    font-size: 2em; /* Imposta la dimensione del testo */
+    text-align: center; 
+    margin-bottom: 20px; /* Aggiunge spazio sotto il titolo */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
