@@ -142,6 +142,13 @@ if (isset($_GET['error'])) {
 
     //gestione errori modifica password
 
+    if($_GET['error'] == 'pwddontmatch'){
+        echo "<p>Le password non combaciano!</p>";
+    }
+
+    if($_GET['error'] == 'invalidpwd'){
+        echo "<p>La password inserita non è valida!</p>";
+    }   
 }
 ?>
 </div>
