@@ -16,6 +16,7 @@
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
     }
+    $stmt->close();
     $username = $user["username"];
     $email = $user["email"];
     $data_creaz = $user["data_creazione_acc"];

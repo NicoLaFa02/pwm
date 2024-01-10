@@ -20,6 +20,7 @@ $result = $stmt->get_result();
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
 }
+$stmt->close();
 $pwd = $user["password"];
 
 
