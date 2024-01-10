@@ -11,7 +11,7 @@ if (!isset($_SESSION["username"])){
     exit();
 }
 
-if (isset($_GET["campoID"])) {
+if (isset($_POST["campoID"])) {
     // Query per ottenere le informazioni dell'utente dal DB
     $stmt = $conn->prepare("SELECT * FROM utenti WHERE username = ?");
     $stmt->bind_param("s", $_SESSION["username"]);
@@ -27,7 +27,7 @@ if (isset($_GET["campoID"])) {
     
     // Query per ottenere le informazioni dell'utente dal DB
     $stmt = $conn->prepare("SELECT * FROM campoDaCalcio WHERE campoID = ?");
-    $stmt->bind_param("i", $_GET["campoID"]);
+    $stmt->bind_param("i", $_POST["campoID"]);
     $stmt->execute();
     $result = $stmt->get_result();
     if ($result->num_rows > 0) {
@@ -47,12 +47,15 @@ if (isset($_GET["campoID"])) {
     $stmt->close();
 
     // Query per aggiornare il numero di recensioni e la votazione media
-    $stmt = $conn->prepare("UPDATE campoDaCalcio SET numeroRecensioni = numeroRecensioni + 1, votazioneCampo = (votazioneCampo + ?) / (numeroRecensioni + 1), ultima_rec = current_timestamp() WHERE campoID = ?");
-    $voto_aggiornato = ($campoData['votazioneCampo'] * $campoData['numeroRecensioni'] + $voto_recensione) / ($campoData['numeroRecensioni'] + 1);    $stmt->bind_param("di", $voto_aggiornato, $campoID);
+    $stmt = $conn->prepare("UPDATE campoDaCalcio SET numeroRecensioni = numeroRecensioni + 1, votazioneCampo = (votazioneCampo * numeroRecensioni + ?) / (numeroRecensioni + 1), ultima_rec = current_timestamp() WHERE campoID = ?");
+    $voto_aggiornato = ($campoData['votazioneCampo'] * $campoData['numeroRecensioni'] + $voto_recensione) / ($campoData['numeroRecensioni'] + 1);
+    $stmt->bind_param("di", $voto_aggiornato, $campoID);
     $stmt->execute();
     $stmt->close();
 
-    
+    header("location: ../img/index.php");
+    exit(); 
+
 } else {
     echo "Campo non specificato.";
 }
