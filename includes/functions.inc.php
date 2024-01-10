@@ -13,10 +13,10 @@ function emptyInputSignup($username, $email, $pwd, $pwdrepeat){
 
 function invalidStringInput($string){
     $result = null;
-    if (!preg_match("/^[a-zA-Z0-9]*$/", $string)){
+    if (!preg_match("/^[a-zA-Z0-9 '\"._,;:*+\\-<>]*$/", $string)){
         $result = true;
     }
-    else{  
+    else{
         $result = false;
     }
     return $result;
