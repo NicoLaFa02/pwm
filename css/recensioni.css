@@ -1,0 +1,12 @@
+#div_titolo_rec {
+    color: black; 
+    font-size: 2em; /* Imposta la dimensione del testo */
+    text-align: center; 
+    margin-bottom: 20px; /* Aggiunge spazio sotto il titolo */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+}
+
+#form_recensioni {
+    text-align: center;
+}
