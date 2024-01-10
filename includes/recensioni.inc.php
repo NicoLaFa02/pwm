@@ -3,6 +3,10 @@
 require_once '../includes/dbh.inc.php';
 require_once '../includes/functions.inc.php';
 
+if(!(isset($_POST["submit"]))){
+    header("location: ../img/index.php");
+    exit();
+}
 // verifico se l'utente è loggato
 session_start();
 //se non è stato effettuato l'accesso allora non esistono impostazioni utente
