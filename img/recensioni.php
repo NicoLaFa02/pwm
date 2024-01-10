@@ -1,29 +1,38 @@
 <?php
-require_once '../includes/dbh.inc.php';
-require_once '../includes/functions.inc.php';
+include_once './header.php';
+?>
 
-if (isset($_GET['campoID'])) {
-    $campoID = $_GET['campoID'];
+<?php
 
-    // Ottieni le recensioni per il campo specificato
-    $recensioni = getRecensioniCampo($conn, $campoID);
+?>
 
-    if ($recensioni) {
-        // Se ci sono recensioni, visualizzale
-        foreach ($recensioni as $recensione) {
-            $nomeUtente = $recensione['username']; // Supponendo che 'username' sia il campo relativo al nome utente
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lascia una recensione</title>
+    <link rel="stylesheet" href="../css/impostazioni.css">
+</head>
+<body>
 
-            // Visualizza le informazioni della recensione
-            echo "<div>";
-            echo "<p>Recensione di: $nomeUtente</p>";
-            echo "<p>Voto: {$recensione['voto']}</p>"; // Supponendo che 'voto' sia il campo relativo al voto
-            echo "<p>Testo: {$recensione['testo']}</p>"; // Supponendo che 'testo' sia il campo relativo al testo della recensione
-            echo "</div>";
-        }
-    } else {
-        echo "Nessuna recensione trovata per questo campo.";
-    }
-} else {
-    echo "Campo non specificato.";
-}
+    <form action="../includes/recensioni.inc.php" method="post">Lascia una recensione
+        
+        <label for="voto">Voto:</label>
+        <input type="number" id="voto" name="voto_rec" min="1" max="5" required><br><br>
+        
+        <label for="testo_recensione">Testo della recensione:</label><br>
+        <textarea id="testo" name="testo_rec" rows="4" cols="50" required></textarea><br><br>
+        
+        <input type="submit" value="Invia recensione">
+
+    </form>
+
+    <!-- <a href='../includes/recensioni.inc.php?campoID=1'><button>Vai alle recensioni</button></a> -->
+
+</body>
+</html>
+
+<?php
+include_once './footer.php';
 ?>
