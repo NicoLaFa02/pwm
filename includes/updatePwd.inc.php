@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
 }
 $stmt->close();
 
-$actualemail = $user["email"];
+$actualpwd = $user["pwd"];
 $username = $user["username"];
 $pwd = $user["password"];
 
