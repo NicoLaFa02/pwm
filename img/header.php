@@ -20,6 +20,7 @@
 
     <header class="header-container">
         <nav class="header-sections">
+            <div class="header-content">
             <ul>
                 <li><a class="link_nav-bar" href="../img/">HOME</a></li>
                 <?php
@@ -35,5 +36,6 @@
                 ?>
                 
             </ul>
+        </div>
         </nav>
     </header>
