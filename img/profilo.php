@@ -10,6 +10,8 @@ include_once './header.php';
 </form>
 <p></p>
 
+<br><br>
+
 <?php
 include_once './footer.php';
 ?>
