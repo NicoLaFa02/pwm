@@ -30,6 +30,14 @@ body {
 
 }
 
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
 #messaggi_errori {
     margin-top: 20px; /* Aggiunge spazio sopra gli errori */
@@ -37,4 +45,5 @@ body {
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
+    animation: zoomIn 1.5s ease-out;
 }
