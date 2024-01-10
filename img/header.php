@@ -22,7 +22,6 @@
         <nav class="header-sections">
             <ul>
                 <li><a class="link_nav-bar" href="../img/">HOME</a></li>
-                <li><a class="link_nav-bar" href="../img/impostazioni.php">IMPOSTAZIONI</a></li>
                 <?php
                 if (isset($_SESSION['username'])){
                     echo '<li><a class="link_nav-bar" href="../img/impostazioni.php">IMPOSTAZIONI ACCOUNT</a></li>';
