@@ -40,7 +40,7 @@ if (!(fieldMatch($oldusername, $newusername)) !== false) {
     exit(); 
 }
 
-if (invalidUsername($newusername) !== false) {
+if (invalidStringInput($newusername) !== false) {
     header("location: ../img/impostazioni.php?error=invalidusername");
     exit(); 
 }

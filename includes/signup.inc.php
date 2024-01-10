@@ -16,7 +16,7 @@ if(isset($_POST["submit"])){
         exit(); 
     }
 
-    if (invalidUsername($username) !== false) {
+    if (invalidStringInput($username) !== false) {
         header("location: ../img/registration.php?error=invalidusername");
         exit(); 
     }
