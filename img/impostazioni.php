@@ -52,10 +52,10 @@ if (!isset($_SESSION['username'])){
         <h2>Modifica Email</h2>
         <form action="../includes/updateEmail.inc.php" method="post">
             <label for="oldEmail">Vecchia Email:</label>
-            <input type="email" id="oldEmail" name="oldEmail" placeholder="inserisci qua la tua vecchia email">
+            <input type="email" id="oldEmail" name="oldEmail" placeholder="inserisci la vecchia email">
             <br>
             <label for="newEmail">Nuova Email:</label>
-            <input type="email" id="newEmail" name="newEmail" placeholder="inserisci qua la tua nuova email">
+            <input type="email" id="newEmail" name="newEmail" placeholder="inserisci la nuova email">
             <br>
             <button type="submit" name="submit">Cambia email</button>        </form>
         </div>
@@ -65,14 +65,11 @@ if (!isset($_SESSION['username'])){
         <!-- Sezione Modifica Password -->
         <h2>Modifica Password</h2>
         <form action="../includes/updatePwd.inc.php" method="post">
-            <label for="oldPassword">Vecchia Password:</label>
-            <input type="password" id="oldPassword" name="oldPassword">
-            <br>
             <label for="newPassword">Nuova Password:</label>
-            <input type="password" id="newPassword" name="newPassword">
+            <input type="password" id="newPassword" name="newPassword" placeholder="inserisci la nuova password">
             <br>
-            <label for="confirmNewPassword">Conferma Nuova Password:</label>
-            <input type="password" id="confirmNewPassword" name="confirmNewPassword">
+            <label for="newPasswordRepeat">Conferma Nuova Password:</label>
+            <input type="password" id="newPasswordRepeat" name="newPasswordRepeat" placeholder="RE-inserisci la nuova password">
             <br>
             <button type="submit" name="submit">Cambia password</button>        </form>
         </div>
