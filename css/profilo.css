@@ -1,17 +1,28 @@
 body {
-    background-color: #cfe8c5; /* Colore di sfondo della pagina */
-    margin: 0; /* Rimuove il margine predefinito del corpo */
-    padding: 0; /* Rimuove il padding predefinito del corpo */
+    background-image: url('https://static.vecteezy.com/ti/vettori-gratis/p3/5488932-vettore-campo-di-calcio-o-futsal-vista-dall-alto-vettoriale.jpg'); /* Specifica il percorso dell'immagine */
+    background-size: cover; /* Adatta l'immagine alla dimensione del corpo */
+    background-position: center; /* Centra l'immagine */
+    background-repeat: no-repeat; /* Impedisce la ripetizione dell'immagine */
+    color: white; /* Cambia il colore del testo per renderlo leggibile sull'immagine di sfondo */
 }
 
 #Benvenuto_profilo {
-    color: green; /* Cambia il colore del testo a verde */
+    color: black; /* Cambia il colore del testo a verde */
     text-align: center; /* Centra il testo */
     margin-bottom: 20px; /* Aggiunge spazio sotto il titolo */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
 }
 
 #informazione_utente {
-    color: green; /* Cambia il colore del testo a verde */ 
+    color: black; /* Cambia il colore del testo a verde */ 
     text-align: center; /* Centra il testo */
     margin-bottom: 20px; /* Aggiunge spazio sotto il titolo */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+}
+
+.impostazioni_button {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
 }

@@ -30,11 +30,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profilo - <?php echo $username ; ?></title>
-    <link rel="stylesheet" href="../css/profilo.css">
+    <link rel="stylesheet" type="text/css" href="../css/profilo.css">
+    <style>
+    h1 {
+        text-shadow: 2px 2px green;
+    }
+</style>
 
 </head>
 
 <body>
+    <br><br><br><br>
     <div id="Benvenuto_profilo">
         <h1>Benvenuto nel tuo profilo <?php echo $username ; ?> </h1>
         <br>
@@ -46,6 +52,7 @@
             <p id="nome-utente">Nome utente: <?php echo $username ; ?> </p>
             <p id="e-mail">Email: <?php echo $email ; ?> </p>
             <p id="data-creazione-account">Data creazione dell'account: <?php echo $data_creaz ; ?> </p>
+            <br><br>
         </div>
     </div>
     
@@ -54,6 +61,5 @@
     <div></div>
     <div></div>
     
-
-    
-</body>
+</body></body>
+</body>     

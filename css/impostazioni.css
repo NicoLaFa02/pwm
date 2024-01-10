@@ -1,11 +1,53 @@
 body {
-    background-color: #cfe8c5; /* Colore di sfondo della pagina */
-    margin: 0; /* Rimuove il margine predefinito del corpo */
-    padding: 0; /* Rimuove il padding predefinito del corpo */
+    background-image: url('https://static.vecteezy.com/ti/vettori-gratis/p3/5488932-vettore-campo-di-calcio-o-futsal-vista-dall-alto-vettoriale.jpg'); /* Specifica il percorso dell'immagine */
+    background-size: cover; /* Adatta l'immagine alla dimensione del corpo */
+    background-position: center; /* Centra l'immagine */
+    background-repeat: no-repeat; /* Impedisce la ripetizione dell'immagine */
+    color: white; /* Cambia il colore del testo per renderlo leggibile sull'immagine di sfondo */
 }
 
 .settings-container {
-    color: green; 
+    color: black; 
     margin-top: 25px;  /* Aggiunge spazio sopra il messaggio */
     text-align: center;
+}
+
+.modifica_username {
+    color: black; 
+    margin-top: 25px;  /* Aggiunge spazio sopra il messaggio */
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+}
+
+.modifica_email {
+    color: black; 
+    margin-top: 25px;  /* Aggiunge spazio sopra il messaggio */
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+}
+
+.modifica_password {
+    color: black; 
+    margin-top: 25px;  /* Aggiunge spazio sopra il messaggio */
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 19px;
+}
+
+.elimina_account {
+    color: black; 
+    margin-top: 10px;  /* Aggiunge spazio sopra il messaggio */
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+#gestione_errori {
+    margin-top: 20px; /* Aggiunge spazio sopra gli errori */
+    color: black;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
 }
