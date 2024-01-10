@@ -3,7 +3,14 @@ include_once './header.php';
 ?>
 
 <?php 
-$campoID = $_GET["campoID"]; 
+$campoID = $_GET["campoID"];
+// verifico se l'utente è loggato
+session_start();
+//se non è stato effettuato l'accesso allora non si possono lasciare recensioni
+if (!isset($_SESSION['username'])){
+    header("location: ../img/index.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +33,7 @@ $campoID = $_GET["campoID"];
         
         <input type="hidden" name="campoID" value="<?php echo $campoID; ?>">
 
-        <input type="submit" value="Invia recensione">
+        <input type="submit" name="submit">
 
     </form>
 
@@ -38,3 +45,5 @@ $campoID = $_GET["campoID"];
 <?php
 include_once './footer.php';
 ?>
+
+SI È LOGGATI O NO?
