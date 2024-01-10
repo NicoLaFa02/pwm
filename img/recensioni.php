@@ -45,5 +45,3 @@ if (!isset($_SESSION['username'])){
 <?php
 include_once './footer.php';
 ?>
-
-SI È LOGGATI O NO?
