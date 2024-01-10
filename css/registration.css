@@ -1,33 +1,40 @@
+/* Aggiungi o modifica queste regole CSS nel tuo file styles.css */
+
 body {
-    background-color: #cfe8c5; /* Colore di sfondo della pagina */
-    margin: 0; /* Rimuove il margine predefinito del corpo */
-    padding: 0; /* Rimuove il padding predefinito del corpo */
+    background-image: url('https://static.vecteezy.com/ti/vettori-gratis/p3/5488932-vettore-campo-di-calcio-o-futsal-vista-dall-alto-vettoriale.jpg'); /* Specifica il percorso dell'immagine */
+    background-size: cover; /* Adatta l'immagine alla dimensione del corpo */
+    background-position: center; /* Centra l'immagine */
+    background-repeat: no-repeat; /* Impedisce la ripetizione dell'immagine */
+    color: white; /* Cambia il colore del testo per renderlo leggibile sull'immagine di sfondo */
 }
 
-#div_registrazione {
-    position: relative;
-}
 
-
-#titolo_registrazione{
-    color: green; /* Cambia il colore del testo a verde */
+#div_registrazione{
+    color: black; /* Cambia il colore del testo a verde */
     font-size: 2em; /* Imposta la dimensione del testo */
     text-align: center; /* Centra il testo */
     margin-bottom: 20px; /* Aggiunge spazio sotto il titolo */
+    font-size: 20px;
 }
 
 #messaggio_email_utente_password {
-    color: green; 
+    color: black; 
     margin-top: 25px;  /* Aggiunge spazio sopra il messaggio */
     text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
 }
 
 #form_registrazione {
     text-align: center;
+
 }
+
 
 #messaggi_errori {
     margin-top: 20px; /* Aggiunge spazio sopra gli errori */
-    color: green;
+    color: black;
     text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
 }
