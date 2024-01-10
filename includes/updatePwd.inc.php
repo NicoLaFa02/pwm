@@ -18,42 +18,33 @@ if ($result->num_rows > 0) {
 }
 $stmt->close();
 
-$actualpwd = $user["pwd"];
+$actualpwd_hashed = $user["password"];
 $username = $user["username"];
-$pwd = $user["password"];
 
-$oldemail = $_POST["oldEmail"];
-$newemail = $_POST["newEmail"];
+$newpwd = $_POST["newPassword"];
+$newpwdrepeat = $_POST["newPasswordRepeat"];
 
-if (emptyInputCheck($oldemail, $newemail) !== false) {
+if (emptyInputCheck($newpwd, $newpwdrepeat) !== false) {
     header("location: ../img/impostazioni.php?error=emptyinput");
     exit(); 
 }
 
-if (fieldMatch($oldemail, $actualemail) !== false) {
-    header("location: ../img/impostazioni.php?error=emaildontmatch");
+if (fieldMatch($newpwd, $newpwdrepeat) !== false) {
+    header("location: ../img/impostazioni.php?error=pwddontmatch");
     exit(); 
 }
 
-if (!(fieldMatch($oldemail, $newemail)) !== false) {
-    header("location: ../img/impostazioni.php?error=sameemail");
+if (invalidStringInput($newpwd) !== false) {
+    header("location: ../img/impostazioni.php?error=invalidpwd");
     exit(); 
 }
 
-if (invalidEmail($newemail) !== false) {
-    header("location: ../img/impostazioni.php?error=invalidemail");
-    exit(); 
-}
+$newpwd_hashed = password_hash($newpwd, PASSWORD_DEFAULT);
 
-if (usernameExists($conn, $newemail, $newemail) !== false) {
-    header("location: ../img/impostazioni.php?error=emailtaken");
-    exit(); 
-}
-
-if(updateCampo($conn, 'utenti', 'email', $oldemail, $newemail)){
+if(updateCampo($conn, 'utenti', 'password', $actualpwd_hashed, $newpwd_hashed)){
     session_unset();
     session_destroy();
-    reLoginUser($conn, $username, $pwd);
+    reLoginUser($conn, $username, $newpwd_hashed);
 }else{
     header("location: ../img/impostazioni.php?error=updatefailed");
     exit(); 
