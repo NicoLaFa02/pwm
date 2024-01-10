@@ -2,8 +2,8 @@
 include_once './header.php';
 ?>
 
-<?php
-
+<?php 
+$campoID = $_GET["campoID"]; 
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +24,8 @@ include_once './header.php';
         <label for="testo_recensione">Testo della recensione:</label><br>
         <textarea id="testo" name="testo_rec" rows="4" cols="50" required></textarea><br><br>
         
+        <input type="hidden" name="campoID" value="<?php echo $campoID; ?>">
+
         <input type="submit" value="Invia recensione">
 
     </form>
