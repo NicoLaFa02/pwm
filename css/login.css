@@ -4,6 +4,7 @@ body {
     background-image: url('https://static.vecteezy.com/ti/vettori-gratis/p3/5488932-vettore-campo-di-calcio-o-futsal-vista-dall-alto-vettoriale.jpg'); /* Specifica il percorso dell'immagine */
     background-size: cover; /* Adatta l'immagine alla dimensione del corpo */
     background-position: center; /* Centra l'immagine */
+    justify-content: center; /* Centra orizzontalmente gli elementi flessibili all'interno del corpo */
     background-repeat: no-repeat; /* Impedisce la ripetizione dell'immagine */
     color: white; /* Cambia il colore del testo per renderlo leggibile sull'immagine di sfondo */
 }
@@ -18,7 +19,7 @@ body {
 
 #messaggio_utente_password {
     color: black; 
-    margin-top: 25px;  /* Aggiunge spazio sopra il messaggio */
+    margin-top: 20px;  /* Aggiunge spazio sopra il messaggio */
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
@@ -36,10 +37,20 @@ body {
     font-size: 30px;
 }
 
+@keyframes zoomIn {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 #messaggi_errori_login {
     margin-top: 20px; /* Aggiunge spazio sopra gli errori */
     color: black;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
+    animation: zoomIn 1.5s ease-out;
 }
