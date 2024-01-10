@@ -20,55 +20,65 @@ if (!isset($_SESSION['username'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impostazioni - <?php echo $_SESSION['username'] ?></title>
     <link rel="stylesheet" href="../css/impostazioni.css">
+    <style>
+    h1 {
+        text-shadow: 2px 2px green;
+    }
+</style>
 </head>
 <body>
 
     <div class="settings-container">
+        <br><br>
         <h1>Impostazioni</h1>
         
+       <div class="modifica_username">
         <!-- Sezione Modifica Username -->
         <h2>Modifica Username</h2>
         <form action="../includes/updateUsername.inc.php" method="post">
             <label for="oldUsername">Vecchio Username:</label>
-            <input type="text" id="oldUsername" name="oldUsername" placeholder="inserisci qua il vecchio username">
-            
+            <input type="text" id="oldUsername" name="oldUsername" placeholder="inserisci il vecchio username">
+            <br>
             <label for="newUsername">Nuovo Username:</label>
-            <input type="text" id="newUsername" name="newUsername" placeholder="inserisci qua il nuovo username">
-            
+            <input type="text" id="newUsername" name="newUsername" placeholder="inserisci il nuovo username">
+            <br>
             <button type="submit" name="submit">Cambia username</button>
         </form>
-        
+       </div>
         <hr>
         
+        <div class="modifica_email">
         <!-- Sezione Modifica Email -->
         <h2>Modifica Email</h2>
         <form action="../includes/updateEmail.inc.php" method="post">
             <label for="oldEmail">Vecchia Email:</label>
             <input type="email" id="oldEmail" name="oldEmail" placeholder="inserisci qua la tua vecchia email">
-            
+            <br>
             <label for="newEmail">Nuova Email:</label>
             <input type="email" id="newEmail" name="newEmail" placeholder="inserisci qua la tua nuova email">
-            
+            <br>
             <button type="submit" name="submit">Cambia email</button>        </form>
-        
+        </div>
         <hr>
         
+        <div class="modifica_password">
         <!-- Sezione Modifica Password -->
         <h2>Modifica Password</h2>
         <form action="../includes/updatePwd.inc.php" method="post">
             <label for="oldPassword">Vecchia Password:</label>
             <input type="password" id="oldPassword" name="oldPassword">
-            
+            <br>
             <label for="newPassword">Nuova Password:</label>
             <input type="password" id="newPassword" name="newPassword">
-            
+            <br>
             <label for="confirmNewPassword">Conferma Nuova Password:</label>
             <input type="password" id="confirmNewPassword" name="confirmNewPassword">
-            
+            <br>
             <button type="submit" name="submit">Cambia password</button>        </form>
-        
+        </div>
         <hr>
         
+        <div class="elimina_account">
         <h2>Elimina Account</h2>
         <form action="../includes/deleteAccount.inc.php" method="post">
             <label for="confirmDelete">Conferma Eliminazione dell'Account:</label>
@@ -77,10 +87,12 @@ if (!isset($_SESSION['username'])){
             <button type="submit" name="deleteAccount">Elimina Account</button>
         </form>
     </div>
-
+</div>
 </body>
 </html>
 
+
+<div id="gestione_errori">
 <?php
 //gestione degli errori php
 if (isset($_GET['error'])) {
@@ -135,6 +147,7 @@ if (isset($_GET['error'])) {
 
 }
 ?>
+</div>
 <?php
 include_once './footer.php';
 ?>
