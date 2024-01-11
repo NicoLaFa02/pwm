@@ -1,4 +1,6 @@
 <?php
+require_once '../includes/dbh.inc.php';
+require_once '../includes/functions.inc.php';
 // session_start(); //non credo sia necessario fare partire la sessione se non è necessario essere loggati
 
 // if(!isset($_POST["submit"])){
