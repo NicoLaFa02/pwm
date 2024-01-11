@@ -62,4 +62,5 @@ body {
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     animation: zoomIn 1.5s ease-out;
+    margin-left: -90px;
 }
