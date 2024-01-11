@@ -33,6 +33,8 @@
         <br><br><br>
         <div id="messaggio_registrazione">
         <p>Non sei ancora registrato?</p>
+        </div>
+        <div id="registrati_ora">
         <a href="./registration.php">Registrati ora</a>
         </div>
     </form>
