@@ -221,10 +221,10 @@ function stampaCampo($conn, $campoID){
         echo "<div>";
         echo "<h3>$nomeCampo</h3>"; // Stampa il nome del campo sopra la foto
         echo "<img src='$urlFoto' alt='Foto del campo'>"; // Stampa l'immagine del campo
-        echo "<p>Votazione: $votazioneCampo &#11088;</p>"; // Stampa la votazione sotto la foto
+        echo "<p>Media totale: $votazioneCampo &#11088;</p>"; // Stampa la votazione sotto la foto
         // pulsante per andare a recensioni.php passando l'ID del campo
         echo "<a href='../img/recensioni.php?campoID=$campoID'><button>Lascia una recensione</button></a>";
-        echo "<a href='../includes/view_recensioni.inc.php?campoID=$campoID'><button>Visualizza tutte le recensioni</button></a>";
+        echo "<a href='../img/view_recensioni.php?campoID=$campoID'><button>Visualizza tutte le recensioni</button></a>";
         echo "</div>";
     } else {
         echo "Nessuna informazione trovata per il campo con ID $campoID";

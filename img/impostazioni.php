@@ -57,7 +57,7 @@ if (!isset($_SESSION['username'])){
             <label for="newEmail">Nuova Email:</label>
             <input type="email" id="newEmail" name="newEmail" placeholder="inserisci la nuova email">
             <br>
-            <button type="submit" name="submit">Cambia email</button>        </form>
+            <button type="submit" name="submit" id="put">Cambia email</button>        </form>
         </div>
         <hr>
         
