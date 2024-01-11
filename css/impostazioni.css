@@ -58,7 +58,7 @@ body {
 #gestione_errori {
     margin-top: 20px; /* Aggiunge spazio sopra gli errori */
     color: black;
-    text-align: left;
+    text-align: center;
     font-family: 'Times New Roman', Times, serif;
     font-size: 18px;
     animation: zoomIn 1.5s ease-out;
