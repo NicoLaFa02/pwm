@@ -9,14 +9,7 @@
     require_once 'functions.inc.php';
 
     // Query per ottenere le informazioni personali
-    $stmt = $conn->prepare("SELECT * FROM utenti WHERE username = ?");
-    $stmt->bind_param("s", $_SESSION["username"]);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-    }
-    $stmt->close();
+    $user = getUserInfo($conn, $_SESSION["username"]);
     $username = $user["username"];
     $email = $user["email"];
     $data_creaz = $user["data_creazione_acc"];

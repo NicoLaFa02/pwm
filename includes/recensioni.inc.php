@@ -3,41 +3,30 @@
 require_once '../includes/dbh.inc.php';
 require_once '../includes/functions.inc.php';
 
-if(!(isset($_POST["submit"]))){
+// verifico se l'utente è loggato
+session_start();
+//se non è stato effettuato l'accesso allora non è possibile lasciare recensioni
+if (!isset($_SESSION["username"])){
     header("location: ../img/index.php");
     exit();
 }
-// verifico se l'utente è loggato
-session_start();
-//se non è stato effettuato l'accesso allora non esistono impostazioni utente
-if (!isset($_SESSION["username"])){
+//è necessario entrare nella pagina tramite un pulsante submit che mandi in post il campoID
+if(!(isset($_POST["submit"]))){
     header("location: ../img/index.php");
     exit();
 }
 
 if (isset($_POST["campoID"])) {
     // Query per ottenere le informazioni dell'utente dal DB
-    $stmt = $conn->prepare("SELECT * FROM utenti WHERE username = ?");
-    $stmt->bind_param("s", $_SESSION["username"]);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-    }
-    $stmt->close();
-
+    $user = getUserInfo($conn, $_SESSION["username"]);
+    
     $username = $user["username"];
     $UID = $user["UID"];
     
-    // Query per ottenere le informazioni dell'utente dal DB
-    $stmt = $conn->prepare("SELECT * FROM campoDaCalcio WHERE campoID = ?");
-    $stmt->bind_param("i", $_POST["campoID"]);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    if ($result->num_rows > 0) {
-        $campoData = $result->fetch_assoc();
-    }
-    $stmt->close();
+
+    // Query per ottenere le informazioni dell'campo dal DB
+    $campoData = getCampoInfo($conn, $_POST["campoID"]);
+
 
     $campoID = $campoData["campoID"];
 

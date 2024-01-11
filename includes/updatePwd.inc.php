@@ -9,14 +9,7 @@ require_once './dbh.inc.php';
 require_once './functions.inc.php';
 
 // Query per ottenere le informazioni personali
-$stmt = $conn->prepare("SELECT * FROM utenti WHERE username = ?");
-$stmt->bind_param("s", $_SESSION["username"]);
-$stmt->execute();
-$result = $stmt->get_result();
-if ($result->num_rows > 0) {
-    $user = $result->fetch_assoc();
-}
-$stmt->close();
+$user = getUserInfo($conn, $_SESSION["username"]);
 
 $actualpwd_hashed = $user["password"];
 $username = $user["username"];
