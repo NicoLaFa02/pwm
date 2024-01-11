@@ -33,10 +33,10 @@ if (!isset($_SESSION['username'])){
     <div id="form_recensioni">
     <form action="../includes/recensioni.inc.php" method="post">
         
-        <label for="voto">Voto:</label>
-        <input type="number" id="voto" name="voto_rec" min="1" max="5" required><br><br>
+        <label for="voto">Inserisci un voto da 1 a 5 &#11015;</label><br>
+        <input type="number" id="voto" name="voto_rec" min="1" max="5" required>&#11088;<br><br>
         <br>
-        <label for="testo_recensione">Testo della recensione:</label><br>
+        <label for="testo_recensione">Scrivi qui cosa ne pensi di questo campo</label><br>
         <textarea id="testo" name="testo_rec" rows="4" cols="50" required></textarea><br><br>
         <br>
         <input type="hidden" name="campoID" value="<?php echo $campoID; ?>">

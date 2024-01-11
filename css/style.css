@@ -9,6 +9,8 @@ body {
     /* Altri stili per il background */
     background-repeat: no-repeat; /* Evita la ripetizione dell'immagine */
     background-size: cover; /* Copre completamente lo sfondo */
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 
