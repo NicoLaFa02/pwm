@@ -148,13 +148,32 @@ function reLoginUser($conn, $username, $pwd){
 // Funzione per ottenere le informazioni dal database
 function getCampoInfo($conn, $campoID) {
     // Esegui la query per ottenere le informazioni del campo dal database
-    $sql = "SELECT nomeCampo, votazioneCampo, url_foto FROM campoDaCalcio WHERE campoID = ?";
+    $sql = "SELECT nomeCampo, votazioneCampo, url_foto, campoID, numeroRecensioni, ultima_rec FROM campoDaCalcio WHERE campoID = ?";
     $stmt = mysqli_stmt_init($conn);
     if (!mysqli_stmt_prepare($stmt, $sql)){
         header("location: ../img/index.php?error=stmtfailed");
         exit(); 
     }
     mysqli_stmt_bind_param($stmt, "i", $campoID); 
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    // Ottieni il risultato della query
+    if ($row = mysqli_fetch_assoc($result)) {
+        return $row;
+    } else {
+        return null;
+    }
+}
+
+function getUserInfo($conn, $username) {
+    // Esegui la query per ottenere le informazioni del campo dal database
+    $sql = "SELECT UID, username, password, email, data_creazione_acc FROM utenti WHERE username = ?";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)){
+        header("location: ../img/index.php?error=stmtfailed");
+        exit(); 
+    }
+    mysqli_stmt_bind_param($stmt, "s", $username); 
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
     // Ottieni il risultato della query
@@ -211,29 +230,7 @@ function stampaCampo($conn, $campoID){
     }
 }
 
-function getRecensioniCampo($conn, $campoID) {
-    //questa query serve a selezionare le recensioni collegate a quel determinato campoID unendo le informazioni relative all'utente recensore
-    $sql = "SELECT recensioni.*, utenti.* 
-            FROM recensioni 
-            JOIN utenti ON recensioni.UID = utenti.UserID 
-            WHERE recensioni.campoID = ?";
-    
-    $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) {
-        return null;
-    } else {
-        mysqli_stmt_bind_param($stmt, "i", $campoID);
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        
-        $recensioni = array();
-        while ($row = mysqli_fetch_assoc($result)) {
-            $recensioni[] = $row;
-        }
-        
-        return $recensioni;
-    }
-}
+
 
 function updateCampo($conn, $tabella, $record, $vecchio_valore, $nuovo_valore) {
     $sql = "UPDATE $tabella SET $record = ? WHERE $record = ?";
