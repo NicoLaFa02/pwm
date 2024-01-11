@@ -34,17 +34,25 @@ if (isset($_POST["campoID"])) {
     $voto_recensione = $_POST["voto_rec"];
 
     // Query per inserire la recensione nel database
-    $stmt = $conn->prepare("INSERT INTO recensioni (testo_recensione, utente_id, campoID_r, username, data_creazione_rec, voto) VALUES (?, ?, ?, ?, current_timestamp(), ?)");
-    $stmt->bind_param("siisi", $testo_recensione, $UID, $campoID, $username, $voto_recensione);
-    $stmt->execute();
-    $stmt->close();
+    $query = "INSERT INTO recensioni (testo_recensione, utente_id, campoID_r, username, data_creazione_rec, voto) VALUES (?, ?, ?, ?, current_timestamp(), ?)";
+    $stmt = mysqli_stmt_init($conn);
+    if (mysqli_stmt_prepare($stmt, $query)) {
+        mysqli_stmt_bind_param($stmt, "siisi", $testo_recensione, $UID, $campoID, $username, $voto_recensione);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+
 
     // Query per aggiornare il numero di recensioni e la votazione media
-    $stmt = $conn->prepare("UPDATE campoDaCalcio SET numeroRecensioni = numeroRecensioni + 1, votazioneCampo = (votazioneCampo * numeroRecensioni + ?) / (numeroRecensioni + 1), ultima_rec = current_timestamp() WHERE campoID = ?");
-    $voto_aggiornato = ($campoData['votazioneCampo'] * $campoData['numeroRecensioni'] + $voto_recensione) / ($campoData['numeroRecensioni'] + 1);
-    $stmt->bind_param("di", $voto_aggiornato, $campoID);
-    $stmt->execute();
-    $stmt->close();
+    $stmt = mysqli_stmt_init($conn);
+    $query = "UPDATE campoDaCalcio SET numeroRecensioni = numeroRecensioni + 1, votazioneCampo = (votazioneCampo * numeroRecensioni + ?) / (numeroRecensioni + 1), ultima_rec = current_timestamp() WHERE campoID = ?";
+    if (mysqli_stmt_prepare($stmt, $query)) {
+        $voto_aggiornato = ($campoData['votazioneCampo'] * $campoData['numeroRecensioni'] + $voto_recensione) / ($campoData['numeroRecensioni'] + 1);
+        mysqli_stmt_bind_param($stmt, "di", $voto_aggiornato, $campoID);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+    }
+
 
     header("location: ../img/index.php");
     exit(); 
