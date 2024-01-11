@@ -28,14 +28,26 @@ if (isset($_GET["campoID"])) {
         mysqli_stmt_bind_param($stmt, "i", $campoID);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id_recensione, $testo_recensione, $utente_id, $campoID_r, $username, $data_creazione_rec, $voto);
+        echo "<table border='1'>";
+        echo "<tr><th>ID Recensione</th><th>Testo Recensione</th><th>ID Utente</th><th>Username</th><th>Data Creazione Recensione</th><th>Voto</th></tr>";
+
         while (mysqli_stmt_fetch($stmt)) {
-            echo "ID Recensione: $id_recensione<br>";
-            echo "Testo Recensione: $testo_recensione<br>";
-            echo "ID Utente: $utente_id<br>";
-            echo "Username: $username<br>";
-            echo "Data Creazione Recensione: $data_creazione_rec<br>";
-            echo "<hr>";
+            echo "<tr>";
+            echo "<td>$id_recensione</td>";
+            echo "<td>$testo_recensione</td>";
+            echo "<td>$utente_id</td>";
+            echo "<td>$username</td>";
+            echo "<td>$data_creazione_rec</td>";
+            echo "<td>";
+        // Aggiungi stelle in base al voto
+        for ($i = 1; $i <= $voto; $i++) {
+            echo "&#11088";
         }
+        echo "</td>";
+        echo "</tr>";
+    }
+
+    echo "</table>";
         mysqli_stmt_close($stmt);
     }
 }
