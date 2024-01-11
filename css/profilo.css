@@ -20,6 +20,15 @@ body {
     margin-bottom: 20px; /* Aggiunge spazio sotto il titolo */
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
+    margin-left: -90px;
+}
+
+#dati_utente {
+    color: black; /* Cambia il colore del testo a verde */ 
+    text-align: center; /* Centra il testo */
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    margin-left: -90px;
 }
 
 .impostazioni_button {
