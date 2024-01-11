@@ -9,13 +9,20 @@
     require_once 'functions.inc.php';
 
     // Query per ottenere le informazioni personali
-    $user = getUserInfo($conn, $_SESSION["username"]);
+    $stmt = $conn->prepare("SELECT * FROM utenti WHERE username = ?");
+    $stmt->bind_param("s", $_SESSION["username"]);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+    }
     $username = $user["username"];
     $email = $user["email"];
     $data_creaz = $user["data_creazione_acc"];
     $uid = $user["UID"];
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="it">
@@ -41,6 +48,7 @@
             <h4>Le tue informazioni</h4>
         </div>
         <br>
+        <div id="dati_utente">
             <p id="e-mail">ID utente: <?php echo $uid ; ?> </p>
             <p id="nome-utente">Nome utente: <?php echo $username ; ?> </p>
             <p id="e-mail">Email: <?php echo $email ; ?> </p>
@@ -54,5 +62,4 @@
     <div></div>
     <div></div>
     
-</body></body>
-</body>     
+</body>
