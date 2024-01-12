@@ -14,7 +14,8 @@
 </head>
 
 <body>
-<?php include_once './header.php'; ?>
+<?php include_once './header.php';
+include_once './sicurezza.php' ?>
 
 <div id="div_login">
     <h1 id="titolo_login">LOGIN</h1>
