@@ -44,7 +44,7 @@ if (usernameExists($conn, $newusername, $newusername) !== false) {
     exit(); 
 }
 
-if(updateCampo($conn, 'utenti', 'username', $oldusername, $newusername)){
+if(updateRecord($conn, 'utenti', 'username', $oldusername, $newusername)){
     session_unset();
     session_destroy();
     reLoginUser($conn, $newusername, $pwd);

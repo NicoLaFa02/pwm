@@ -132,3 +132,32 @@ p {
     }
 }
 
+
+#recensioni_utente table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: green; /* Cambia il colore di sfondo a seconda delle tue preferenze */
+}
+
+#recensioni_utente th, #recensioni_utente td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#recensioni_utente th {
+    background-color: rgba(236, 236, 236, 20%);
+    color: black;
+}
+
+#recensioni_utente tr:nth-child(even) {
+    background-color: darkgreen;
+}
+
+#recensioni_utente tr:nth-child(odd) {
+    background-color: limegreen;
+}
+
+#recensioni_utente th .testo_tabella {
+    color: black;
+}

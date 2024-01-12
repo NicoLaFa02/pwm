@@ -24,4 +24,3 @@ echo '</div>';
 
 </body>
 </html>
-<!-- //dovremmo fare una funzione che guarda le colonne della tabella "campoDaCalcio" e per ogni campo stampa la foto asegnata a quel campo e le informazioni, rendendo il campo accessibile per le recensioni

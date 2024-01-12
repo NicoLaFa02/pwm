@@ -43,7 +43,7 @@ if (usernameExists($conn, $newemail, $newemail) !== false) {
     exit(); 
 }
 
-if(updateCampo($conn, 'utenti', 'email', $oldemail, $newemail)){
+if(updateRecord($conn, 'utenti', 'email', $oldemail, $newemail)){
     session_unset();
     session_destroy();
     reLoginUser($conn, $username, $pwd);

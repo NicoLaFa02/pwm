@@ -34,7 +34,7 @@ if (invalidStringInput($newpwd) !== false) {
 
 $newpwd_hashed = password_hash($newpwd, PASSWORD_DEFAULT);
 
-if(updateCampo($conn, 'utenti', 'password', $actualpwd_hashed, $newpwd_hashed)){
+if(updateRecord($conn, 'utenti', 'password', $actualpwd_hashed, $newpwd_hashed)){
     session_unset();
     session_destroy();
     reLoginUser($conn, $username, $newpwd_hashed);

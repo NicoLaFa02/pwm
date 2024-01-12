@@ -2,6 +2,8 @@
 include_once './header.php';
 ?>
 
+<div id=recensioni_utente>
+
 <?php
 
 require_once '../includes/dbh.inc.php';
@@ -18,13 +20,11 @@ if (isset($_GET["campoID"])) {
     
     stampaCampo($conn, $campoID);
 
-    // Query per ottenere tutte le recensioni per un determinato campoID
-    $query = "SELECT id_recensione, testo_recensione, utente_id, campoID_r, username, data_creazione_rec, voto
-    FROM recensioni
-    WHERE campoID_r = ?";
+    //query per le recensioni di un determinato campoID
+    $sql = "SELECT id_recensione, testo_recensione, utente_id, campoID_r, username, data_creazione_rec, voto FROM recensioni WHERE campoID_r = ?";
 
     $stmt = mysqli_stmt_init($conn);
-    if (mysqli_stmt_prepare($stmt, $query)) {
+    if (mysqli_stmt_prepare($stmt, $sql)) {
         mysqli_stmt_bind_param($stmt, "i", $campoID);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_bind_result($stmt, $id_recensione, $testo_recensione, $utente_id, $campoID_r, $username, $data_creazione_rec, $voto);
@@ -39,20 +39,22 @@ if (isset($_GET["campoID"])) {
             echo "<td>$username</td>";
             echo "<td>$data_creazione_rec</td>";
             echo "<td>";
-        // Aggiungi stelle in base al voto
-        for ($i = 1; $i <= $voto; $i++) {
-            echo "&#11088";
+            // Aggiungi stelle in base al voto
+            for ($i = 1; $i <= $voto; $i++) {
+                echo "&#11088";
+            }
+            echo "</td>";
+            echo "</tr>";
         }
-        echo "</td>";
-        echo "</tr>";
-    }
 
-    echo "</table>";
+        echo "</table>";
         mysqli_stmt_close($stmt);
     }
 }
 
 ?>
+
+</div>
 
 <!DOCTYPE html>
 <html lang="it">
