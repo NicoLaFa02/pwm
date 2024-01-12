@@ -64,3 +64,25 @@ body {
     animation: zoomIn 1.5s ease-out;
     margin-left: -90px;
 }
+
+@media screen and (min-width: 300px) and (max-width: 900px) {
+    
+    body {
+        /* Esempio: Riduci la dimensione del testo del corpo su schermi più piccoli */
+        font-size: 14px;
+    }
+
+    /* Aggiungi altre regole CSS necessarie per adattare il tuo layout */
+    
+    /* Esempio: Rendi le immagini responsive */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Esempio: Modifica il layout per adattarlo a schermi più piccoli */
+    .container {
+        width: 100%; /* Adatta la larghezza del contenitore al 100% dello schermo */
+        padding: 10px; /* Esempio: Riduci il padding del contenitore */
+    }
+}
